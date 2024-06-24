@@ -4,9 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Research Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF9EC;
+            color: #333;
+        }
+        header {
+            background-color: #58B62C;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        nav {
+            margin: 0;
+            padding: 1em;
+            background-color: #333;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            padding: 2em;
+        }
+        .profile-img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 150px;
+            border-radius: 50%;
+        }
+        .content {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Research Website</h1>
-    <p>Hi, I am [Your Name], a scientist working on [Your Field].</p>
+    <header>
+        <h1>Welcome to My Research Website</h1>
+    </header>
+    <nav>
+        <a href="cv.html">My CV</a>
+        <a href="blog.html">Blog</a>
+        <a href="papers.html">My Papers</a>
+    </nav>
+    <main>
+        <div class="content">
+            <img src="AFWall ABC News.jpg" alt="Alex F. Wall" class="profile-img">
+            <p>Hi, I am Alex F. Wall, a scientist working on various projects including the <a href="https://www.jcu.edu.au/college-of-science-and-engineering/vegemap" target="_blank" style="color: #58B62C;">VegeMap project</a>.</p>
+        </div>
+    </main>
 </body>
 </html>
