@@ -1,49 +1,68 @@
-#                                                            
-#    Traps n Maps locations                           
-#                                                            
-#    Written by Alex F Wall                                  
-#    version 12-07-2024                                      
-#
-#    requires packages within .Rprofile                      
 
-if (!requireNamespace("tidyverse", quietly = TRUE)) install.packages("tidyverse")
-library(tidyverse)
+#   Trap Mapper
+#   Mapping pollen traps places as part of the VegeMap project
+
+#   Alex F Wall
+#   version 22/8/24
+
+rm(list = ls())
 
 if (!requireNamespace("mapview", quietly = TRUE)) install.packages("mapview")
 library(mapview)
 
 if (!requireNamespace("googlesheets4", quietly = TRUE)) install.packages("googlesheets4")
 library(googlesheets4)
+gs4_auth(email = "alexfwall@gmail.com", cache = ".secrets")
+
+if (!requireNamespace("tidyverse", quietly = TRUE)) install.packages("tidyverse")
+library(tidyverse)
+
+if (!requireNamespace("postcards", quietly = TRUE)) install.packages("postcards")
+library(postcards)
 
 # Read data from a Google Sheet
-sheet_url <- "https://docs.google.com/spreadsheets/d/1UJg_n3N37sIlt3zRsUzhtZDJDXR3iB5-9ChF1fDvGBE/edit#gid=973178456"
+sheet_url <- "https://docs.google.com/spreadsheets/d/17fGeRsr3lQoOHPTL9B8MovFWV3XM7u6wvXxCPTVfmN8/edit?usp=sharing"
 tm <- read_sheet(sheet_url)
 
 tm <- tm %>% drop_na("Latitude", "Longitude")
 
+tm <- tm %>% mutate(Country = ifelse(is.na(Country), "Unknown", Country))
+
+# Extract just the first name from the "Installer" column
+tm <- tm %>%
+  mutate(Pollen_Trapper = str_extract(Installer, "^[^ ]+"))  # Extract everything before the first space
+
+
 mapviewOptions(default = TRUE, fgb = FALSE, basemaps.color.shuffle = FALSE,
-               basemaps = c("CartoDB.Positron", "Esri.WorldImagery", "CartoDB.DarkMatter"))
+               basemaps = c("Esri.WorldImagery", "CartoDB.Positron", "CartoDB.DarkMatter"))
 
 tm.mp <- sf::st_as_sf(tm, coords = c("Longitude", "Latitude"), 
                       remove = TRUE, crs = 4326)
 
-TrapMap <- 
-
+map <- 
+  
   mapview(tm.mp, xcol = "Longitude", ycol = "Latitude", 
           #zcol = "Transect",
           cex = 8, alpha.regions = 0.5, legend = TRUE, 
-          #  col.regions = "green",
-          layer.name = "T&M sites",
+          col.regions = "yellow",
+          layer.name = "Pollen Traps",
           popup = leafpop::popupTable(tm.mp, 
-#                        zcol = c("TERN_ID", "Pollen_ID", "X", "geometry")
+                                      zcol = c("Trap", "Country", "Installed_Date", "Pollen_Trapper")
           )
   )
 
-print(TrapMap)
+print(map)
 
-# Install and load htmlwidgets package
+if (!requireNamespace("webshot", quietly = TRUE)) install.packages("webshot")
+library(webshot)
+if (!requireNamespace("here", quietly = TRUE)) install.packages("here")
+library(here)
+
+# Convert mapview object to a leaflet object
+leaflet_map <- map@map
+
 if (!requireNamespace("htmlwidgets", quietly = TRUE)) install.packages("htmlwidgets")
 library(htmlwidgets)
 
-# Save the map using saveWidget
-saveWidget(TrapMap@map, "map.html", selfcontained = TRUE)
+# Save as an HTML file using saveWidget
+saveWidget(leaflet_map, "map.html", selfcontained = TRUE)
