@@ -4,102 +4,135 @@ title: "Alex F Wall, PhD"
 ---
 
 <style>
+  /* Basic resets and body styling */
   body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #FFF9EC;
-      color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #FFF9EC;
+    color: #333;
+    font-family: Arial, sans-serif;
   }
-  header {
-      background-color: #58B62C;
-      color: white;
-      padding: 1em;
-      text-align: left;
-      position: relative;
-      height: 150px;
+
+  /* Hero/header section */
+  .hero {
+    background-color: #58B62C;
+    color: white;
+    padding: 1em;
+    text-align: left;
+    position: relative;
   }
-  nav {
-      margin: 0;
-      padding: 1em;
-      background-color: #333;
-      text-align: left;
+  .hero h1 {
+    margin: 0;
   }
-  nav a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
+
+  /* Navigation bar */
+  .nav {
+    background-color: #333;
+    text-align: left;
+    padding: 0.5em 1em;
   }
-  main {
-      display: flex;
-      padding: 2em;
+  .nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
   }
-  .left-column {
-      width: 65%;
+
+  /* Main container for content */
+  .container {
+    max-width: 1000px;
+    margin: 1em auto;
+    padding: 1em;
   }
-  .right-column {
-      width: 35%;
-      padding-left: 2em;
-      position: relative;
+
+  /* Responsive columns: single column on mobile, two columns on larger screens */
+  .columns {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
   }
+  @media (min-width: 768px) {
+    .columns {
+      flex-direction: row;
+    }
+  }
+
+  .left-col {
+    flex: 2;
+  }
+  .right-col {
+    flex: 1;
+    position: relative;
+  }
+
+  /* Image styling */
   .profile-img {
-      width: 100%;
-      height: auto;
-      border-radius: 0;
-      position: absolute;
-      top: -100px;
-      left: 0;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
-  .content {
-      text-align: left;
-  }
+
+  /* Social links */
   .social-links {
-      margin-top: 200px;
+    margin-top: 2em;
+    text-align: center;
   }
   .social-links a {
-      display: block;
-      margin-bottom: 0.5em;
-      color: #58B62C;
-      text-decoration: none;
+    display: block;
+    margin-bottom: 0.5em;
+    color: #58B62C;
+    text-decoration: none;
   }
+
+  /* Iframe container for the map */
   .iframe-container {
-      text-align: center;
-      margin: 2em 0;
+    text-align: center;
+    margin: 2em 0;
   }
-  iframe {
-      width: 100%;
-      height: 800px;
-      border: none;
+  .iframe-container iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
   }
 </style>
 
-<header>
-    <h1>Alex F Wall, PhD</h1>
-</header>
-<nav>
-   <a href="https://www.jcu.edu.au/college-of-science-and-engineering/vegemap">VegeMap</a>
-   <a href="_pages/cv/">Full CV</a>
-   <a href="blog.html">Blog</a>
-</nav>
-<main>
-    <div class="left-column">
-        <div class="content">
-            <p><strong>Palaeomancer</strong> (noun):<br>
-            <em>pal·ae·o·man·cer</em> /ˈpæliˌoʊˌmænsər/</p>
-            <p>1. A person who practices or is skilled in the interpretation of ancient records, particularly those related to the earth's geological and climatic history.<br>
-            2. An expert in deciphering historical environmental changes through the analysis of fossilized remains, sediments, and other geological data.</p>
-            <p><em>Origin:</em> Latin <em>palaeo-</em> (from Greek <em>palaios</em>, meaning "ancient") + <em>-mancer</em> (from Greek <em>manteia</em>, meaning "divination").</p>
-        </div>
+<div class="hero">
+  <h1>Alex F Wall, PhD</h1>
+</div>
+
+<div class="nav">
+  <a href="https://www.jcu.edu.au/college-of-science-and-engineering/vegemap">VegeMap</a>
+  <a href="Full_AFWall_CV.pdf">Full CV</a>
+  <a href="blog.html">Blog</a> <!-- Adjust if your blog is at a different URL -->
+</div>
+
+<div class="container">
+  <div class="columns">
+    <div class="left-col">
+      <p><strong>Palaeomancer</strong> (noun):<br>
+      <em>pal·ae·o·man·cer</em> /ˈpæliˌoʊˌmænsər/</p>
+      <p>
+        1. A person who practices or is skilled in the interpretation of ancient records, 
+        particularly those related to the earth's geological and climatic history.<br>
+        2. An expert in deciphering historical environmental changes through the analysis 
+        of fossilized remains, sediments, and other geological data.
+      </p>
+      <p>
+        <em>Origin:</em> Latin <em>palaeo-</em> (from Greek <em>palaios</em>, meaning "ancient") + 
+        <em>-mancer</em> (from Greek <em>manteia</em>, meaning "divination").
+      </p>
     </div>
-    <div class="right-column">
-        <img src="AFWall ABC News.jpg" alt="Alex F. Wall" class="profile-img">
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a>
-            <a href="https://github.com/AlexFWall">GitHub</a>
-            <a href="https://www.researchgate.net/profile/Your-Name">ResearchGate</a>
-        </div>
+    <div class="right-col">
+      <img src="AFWall ABC News.jpg" alt="Alex F. Wall" class="profile-img">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a>
+        <a href="https://github.com/AlexFWall">GitHub</a>
+        <a href="https://www.researchgate.net/profile/Your-Name">ResearchGate</a>
+      </div>
     </div>
-</main>
-<div class="iframe-container">
+  </div>
+
+  <div class="iframe-container">
     <iframe src="map.html"></iframe>
+  </div>
 </div>
