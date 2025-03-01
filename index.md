@@ -102,8 +102,8 @@ title: "Alex F Wall, PhD"
 
 <div class="nav">
   <a href="https://www.jcu.edu.au/college-of-science-and-engineering/vegemap">VegeMap</a>
-  <a href="Full_AFWall_CV.pdf">Full CV</a>
-  <a href="blog.html">Blog</a> <!-- Adjust if your blog is at a different URL -->
+  <a href="/Palaeomancer/cv/">CV</a>
+  <a href="/Palaeomancer/blog/">Blog</a>
 </div>
 
 <div class="container">
