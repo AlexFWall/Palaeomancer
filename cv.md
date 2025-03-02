@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Alex F Wall, Full CV"
+title: "Full CV"
 permalink: /cv/
 ---
 
