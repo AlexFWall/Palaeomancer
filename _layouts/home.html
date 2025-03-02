@@ -20,13 +20,12 @@ layout: null
     }
 
     /* Container for header + nav, to center them */
-    .header-nav-container {
-      max-width: 800px;
-      margin: 0 auto; /* center horizontally */
-      text-align: left;
-      /* Added horizontal padding for more left cushion */
-      padding: 2 2em;
-    }
+.header-nav-container {
+  max-width: 800px;
+  margin: 0 auto;     /* centers horizontally */
+  text-align: left;
+  padding: 0 2em;     /* add left/right padding so the title/subtitle aren’t flush */
+}
 
     /* Container for main content (blog, map, definition) */
     .content-container {
@@ -43,15 +42,15 @@ layout: null
     }
 
     /* Header with subtitle & image on the right (desktop) */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #58B62C;
-      color: white;
-      padding: 1em 2;
-      margin-bottom: 0;
-    }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #58B62C;
+  color: white;
+  margin-bottom: 0;
+  padding: 1em 2em;   /* add left/right padding inside the header itself */
+}
     header .subtitle {
       margin: 0;
       font-size: 1.2em;
