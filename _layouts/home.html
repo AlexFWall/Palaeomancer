@@ -6,7 +6,7 @@ layout: null
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- This helps ensure proper scaling on mobile -->
+  <!-- Helps ensure proper scaling on mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
   <style>
@@ -18,70 +18,102 @@ layout: null
       margin: 0;
       padding: 0;
     }
-    /* Center everything horizontally and right-align text */
+
+    /* Container for centering and left-aligning text */
     .container {
       max-width: 800px;
       margin: 0 auto; /* centers horizontally */
-      text-align: right; /* right-aligns the text inside */
+      text-align: left; /* left-align text inside */
       padding: 0 1em;
     }
-    /* Make fonts slightly larger by default */
-    body, .container {
+
+    /* Increase base font size slightly */
+    body,
+    .container {
       font-size: 1.1em;
     }
-    /* Header styles */
+
+    /* Header with subtitle and image */
     header {
       display: flex;
       align-items: center;
-      justify-content: space-between; /* space between the title and image */
+      justify-content: space-between; 
       background-color: #58B62C;
       color: white;
       padding: 1em;
-      margin-bottom: 0; /* We'll rely on .container for spacing */
+      margin-bottom: 0;
     }
     header .subtitle {
       margin: 0;
       font-size: 1.2em;
     }
-    /* Nav styles */
-    nav {
+    header img {
+      height: 100px;
+      border-radius: 4px;
+    }
+
+    /* Hamburger menu container */
+    .nav-container {
       background-color: #333;
+      margin-bottom: 2em;
+    }
+
+    /* The hidden checkbox that toggles the menu on mobile */
+    #menu-toggle {
+      display: none;
+    }
+
+    /* The label that acts as the hamburger icon on mobile */
+    .menu-toggle-label {
+      display: none;
       padding: 1em;
-      margin-bottom: 2em; /* space after nav before main content */
+      color: white;
+      cursor: pointer;
+    }
+    .menu-toggle-label:hover {
+      background-color: #444;
+    }
+
+    /* The actual nav links */
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 1em;
+      display: flex;
+      flex-direction: row; /* links in a row by default */
+    }
+    nav ul li {
+      margin-right: 15px;
     }
     nav a {
-      margin: 0 15px;
       color: white;
       text-decoration: none;
     }
-    /* Blog container, map, definition */
-    .content-area {
-      margin-bottom: 2em;
-    }
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-    }
 
-    /* Make fonts even bigger on smaller screens (e.g., phones) */
+    /* 
+      On smaller screens:
+      1) Show the hamburger icon
+      2) Hide the nav links by default
+      3) Reveal them when the checkbox is checked
+    */
     @media (max-width: 600px) {
-      body, .container {
-        font-size: 1.2em; /* slightly larger on mobile */
+      .menu-toggle-label {
+        display: block; /* show hamburger on mobile */
+        background-color: #333;
       }
-      header {
-        flex-direction: column; /* stack the title and image vertically */
-        text-align: right;      /* keep text right-aligned */
+      nav ul {
+        display: none; /* hide links by default */
+        flex-direction: column; 
       }
-      header img {
-        margin-top: 1em;
+      #menu-toggle:checked + nav ul {
+        display: flex; /* show links when toggled */
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header and Title -->
+  <!-- HEADER: Title, Subtitle, Image on the Right -->
   <div class="container">
     <header>
       <div>
@@ -89,24 +121,29 @@ layout: null
         <h2 class="subtitle">Alex F Wall's research and projects</h2>
       </div>
       <img src="{{ '/AFWall ABC News.jpg' | relative_url }}" 
-           alt="Alex F. Wall" 
-           style="height: 100px; border-radius: 4px;">
+           alt="Alex F. Wall">
     </header>
   </div>
 
-  <!-- Navigation -->
-  <div class="container">
+  <!-- NAV: Hamburger menu on mobile, horizontal links on desktop -->
+  <div class="container nav-container">
+    <!-- Hidden checkbox for toggling the menu -->
+    <input type="checkbox" id="menu-toggle">
+    <!-- The label that acts as the hamburger icon -->
+    <label for="menu-toggle" class="menu-toggle-label">&#9776; Menu</label>
     <nav>
-      <a href="{{ '/cv/' | relative_url }}">CV</a>
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a>
-      <a href="https://github.com/AlexFWall">GitHub</a>
-      <a href="https://www.researchgate.net/profile/Your-Name">ResearchGate</a>
+      <ul>
+        <li><a href="{{ '/cv/' | relative_url }}">CV</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+        <li><a href="https://www.linkedin.com/in/your-profile">LinkedIn</a></li>
+        <li><a href="https://github.com/AlexFWall">GitHub</a></li>
+        <li><a href="https://www.researchgate.net/profile/Your-Name">ResearchGate</a></li>
+      </ul>
     </nav>
   </div>
 
-  <!-- Main content area: blog post, map, definition -->
-  <div class="container content-area">
+  <!-- MAIN CONTENT: blog post, map, definition -->
+  <div class="container">
     <!-- 1) Most Recent Blog Post -->
     {% assign latest_post = site.posts | first %}
     {% if latest_post %}
@@ -138,5 +175,6 @@ layout: null
     2. An expert in deciphering historical environmental changes...</p>
     <p><em>Origin:</em> Latin <em>palaeo-</em> (from Greek <em>palaios</em>, meaning "ancient") + <em>-mancer</em>...</p>
   </div>
+
 </body>
 </html>
