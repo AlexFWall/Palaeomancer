@@ -1,0 +1,87 @@
+---
+layout: null
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #FFF9EC;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #58B62C;
+      color: white;
+      padding: 1em;
+      text-align: left;
+      position: relative;
+      height: 150px;
+    }
+    nav {
+      margin: 0;
+      padding: 1em;
+      background-color: #333;
+      text-align: left;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{{ site.title }}</h1>
+  </header>
+  <nav>
+    <a href="{{ '/cv/' | relative_url }}">CV</a>
+    <a href="{{ '/blog/' | relative_url }}">Blog</a>
+    <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a>
+    <a href="https://github.com/AlexFWall">GitHub</a>
+    <a href="https://www.researchgate.net/profile/Your-Name">ResearchGate</a>
+  </nav>
+  <div class="container">
+    <!-- 1) Most Recent Blog Post -->
+    {% assign latest_post = site.posts | first %}
+    {% if latest_post %}
+      <h2>{{ latest_post.title }}</h2>
+      {{ latest_post.content }}
+    {% else %}
+      <p>No blog posts yet!</p>
+    {% endif %}
+
+    <hr>
+
+    <!-- 2) Map -->
+    <h2>Interactive Map</h2>
+    <iframe src="map.html"></iframe>
+
+    <hr>
+
+    <!-- 3) Palaeomancer Definition -->
+    <h2>Palaeomancer</h2>
+    <p><strong>Palaeomancer</strong> (noun):<br>
+    <em>pal·ae·o·man·cer</em> /ˈpæliˌoʊˌmænsər/</p>
+    <p>1. A person who practices or is skilled in the interpretation of ancient records...<br>
+    2. An expert in deciphering historical environmental changes...</p>
+    <p><em>Origin:</em> Latin <em>palaeo-</em> (from Greek <em>palaios</em>, meaning "ancient") + <em>-mancer</em>...</p>
+  </div>
+</body>
+</html>
