@@ -20,18 +20,18 @@ layout: null
     }
 
     /* Container for header + nav, to center them */
-.header-nav-container {
-  max-width: 800px;
-  margin: 0 auto;     /* centers horizontally */
-  text-align: left;
-  padding: 0 1em;     /* add left/right padding so the title/subtitle aren’t flush */
-}
+    .header-nav-container {
+      max-width: 800px;
+      margin: 0 auto;  /* centers horizontally */
+      text-align: left;
+      padding: 0 1em;  /* normal left/right padding for title/subtitle */
+    }
 
     /* Container for main content (blog, map, definition) */
     .content-container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 0 2em;
+      padding: 0 2em;  /* normal left/right padding for main content */
     }
 
     /* Slightly larger base font size */
@@ -42,15 +42,15 @@ layout: null
     }
 
     /* Header with subtitle & image on the right (desktop) */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #58B62C;
-  color: white;
-  margin-bottom: 0;
-  padding: 1em 2em;   /* add left/right padding inside the header itself */
-}
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #58B62C;
+      color: white;
+      margin-bottom: 0;
+      padding: 1em; /* normal spacing around the header content */
+    }
     header .subtitle {
       margin: 0;
       font-size: 1.2em;
@@ -108,7 +108,7 @@ header {
     .map-container {
       position: relative;
       width: 100%;
-      padding-top: 55.555%; /* 5/9 ~ 0.5555 => 9:5 ratio */
+      padding-top: 55.555%; /* 5/9 => 0.5555 => 9:5 ratio */
       margin-bottom: 2em;
     }
     .map-container iframe {
@@ -120,17 +120,13 @@ header {
       border: none;
     }
 
-    /* On smaller screens: 
-       1) Show hamburger icon
-       2) Stack header items vertically, left-justified
-       3) Move image below subtitle
-    */
+    /* Mobile Styles */
     @media (max-width: 600px) {
-  .header-nav-container,
-  .content-container {
-    padding: 0 1em !important; /* or 0 if you want no horizontal padding at all */
-  }
-}
+      /* Show hamburger icon, hide nav links by default */
+      .menu-toggle-label {
+        display: block;
+        background-color: #333;
+      }
       nav ul {
         display: none; /* hidden until toggled */
         flex-direction: column;
@@ -139,13 +135,20 @@ header {
         display: flex; /* show links when toggled */
       }
 
+      /* Stack header items vertically, left-justified */
       header {
-        flex-direction: column; /* stack title/subtitle + image vertically */
-        align-items: flex-start; /* left-justify them */
+        flex-direction: column;
+        align-items: flex-start;
       }
       header img {
         margin-top: 1em;
-        align-self: flex-start; /* place the image to the left */
+        align-self: flex-start; /* place the image below the subtitle, left-justified */
+      }
+
+      /* Reduce container padding if it feels cramped */
+      .header-nav-container,
+      .content-container {
+        padding: 0 1em !important;
       }
     }
   </style>
