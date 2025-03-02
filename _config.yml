@@ -1,7 +1,5 @@
 nav:
   - title: Home
-    url: /
-  - title: CV
-    url: /cv/
+    url: /Palaeomancer
   - title: Research
     url: /research/
