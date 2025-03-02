@@ -86,7 +86,7 @@ title: "Alex F Wall, PhD"
         <div class="content">
             <p><strong>Palaeomancer</strong> (noun):<br>
             <em>pal·ae·o·man·cer</em> /ˈpæliˌoʊˌmænsər/</p>
-            <p>1. A person who practices or is skilled in the interpretation of ancient records, particularly those related to the earth's geological and climatic history.<br>
+            <p>1. A person who practices or is skilled in the interpretation of ancient records, particularly those related to the Earth's geological and climatic history.<br>
             2. An expert in deciphering historical environmental changes through the analysis of fossilized remains, sediments, and other geological data.</p>
             <p><em>Origin:</em> Latin <em>palaeo-</em> (from Greek <em>palaios</em>, meaning "ancient") + <em>-mancer</em> (from Greek <em>manteia</em>, meaning "divination").</p>
         </div>
