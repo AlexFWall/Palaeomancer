@@ -78,7 +78,7 @@ title: "Alex F Wall, PhD"
 </header>
 <nav>
    <a href="https://www.jcu.edu.au/college-of-science-and-engineering/vegemap">VegeMap</a>
-   <a href="cv">CV</a>
+   <a href=/cv/>CV</a>
    <a href="/blog/">Blog</a>
 </nav>
 <main>
