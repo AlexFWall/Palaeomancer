@@ -1,5 +1,5 @@
 ---
 layout: home
-title: "Palaeomancer Blog"
+title: "Blog"
 permalink: /blog/
 ---
