@@ -19,34 +19,38 @@ layout: null
       padding: 0;
     }
 
-    /* Wraps header and nav so they share the same width */
+    /* Container for header + nav, to center them */
     .header-nav-container {
       max-width: 800px;
-      margin: 0 auto; /* centers horizontally */
-      text-align: left; 
-      padding: 0 1em;
+      margin: 0 auto; /* center horizontally */
+      text-align: left;
+      /* Added horizontal padding for more left cushion */
+      padding: 0 2em;
     }
 
     /* Container for main content (blog, map, definition) */
     .content-container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 0 1em;
+      padding: 0 2em;
     }
 
     /* Slightly larger base font size */
-    body, .header-nav-container, .content-container {
+    body,
+    .header-nav-container,
+    .content-container {
       font-size: 1.1em;
     }
 
-    /* Header with subtitle & image on the right */
+    /* Header with subtitle & image on the right (desktop) */
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       background-color: #58B62C;
       color: white;
-      padding: 1em 0; /* no left/right since .header-nav-container has padding */
+      padding: 1em 0;
+      margin-bottom: 0;
     }
     header .subtitle {
       margin: 0;
@@ -97,21 +101,31 @@ layout: null
       margin-bottom: 2em;
     }
 
-    /* Default map size */
-    iframe {
+    /*
+      Responsive 9:5 aspect ratio for the map:
+      1) A wrapper .map-container with a top padding of 55.55% (5/9 ~ 0.5555)
+      2) The <iframe> is absolutely positioned to fill that space
+    */
+    .map-container {
+      position: relative;
       width: 100%;
-      height: 600px;
+      padding-top: 55.555%; /* 5/9 ~ 0.5555 => 9:5 ratio */
+      margin-bottom: 2em;
+    }
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       border: none;
     }
 
-    /* Larger map on desktop */
-    @media (min-width: 800px) {
-      iframe {
-        height: 800px; /* Increase map height on wider screens */
-      }
-    }
-
-    /* On smaller screens: show hamburger, hide nav links by default */
+    /* On smaller screens: 
+       1) Show hamburger icon
+       2) Stack header items vertically, left-justified
+       3) Move image below subtitle
+    */
     @media (max-width: 600px) {
       .menu-toggle-label {
         display: block;
@@ -124,11 +138,14 @@ layout: null
       #menu-toggle:checked ~ nav ul {
         display: flex; /* show links when toggled */
       }
+
       header {
-        flex-direction: column; /* stack title and image vertically */
+        flex-direction: column; /* stack title/subtitle + image vertically */
+        align-items: flex-start; /* left-justify them */
       }
       header img {
         margin-top: 1em;
+        align-self: flex-start; /* place the image to the left */
       }
     }
   </style>
@@ -172,7 +189,7 @@ layout: null
     {% endif %}
     <hr>
 
-    <!-- 2) Map -->
+    <!-- 2) Map in 9:5 aspect ratio -->
     <h2>
       <a href="https://www.jcu.edu.au/college-of-science-and-engineering/vegemap">
         <img src="{{ '/VegeMap_BurstingLogo_Final2-01.png' | relative_url }}" 
@@ -181,7 +198,9 @@ layout: null
       </a>
       Interactive Map
     </h2>
-    <iframe src="map.html"></iframe>
+    <div class="map-container">
+      <iframe src="map.html"></iframe>
+    </div>
 
     <hr>
 
