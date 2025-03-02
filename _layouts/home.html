@@ -60,18 +60,19 @@ layout: null
   <div class="container">
     <!-- 1) Most Recent Blog Post -->
     {% assign latest_post = site.posts | first %}
-    {% if latest_post %}
       <h2>{{ latest_post.title }}</h2>
       {{ latest_post.content }}
-    {% else %}
-      <p>No blog posts yet!</p>
-    {% endif %}
-
     <hr>
 
-    <!-- 2) Map -->
-    <h2>Interactive Map</h2>
-    <iframe src="map.html"></iframe>
+<!-- 2) Map -->
+<h2>
+  <img src="{{ '/VegeMap_BurstingLogo_Final2-01.png' | relative_url }}" 
+       alt="VegeMap Logo" 
+       style="height:50px; margin-right:10px; vertical-align:middle;">
+  Interactive Map
+</h2>
+<iframe src="map.html"></iframe>
+
 
     <hr>
 
