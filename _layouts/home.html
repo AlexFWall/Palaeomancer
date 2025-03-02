@@ -6,7 +6,7 @@ layout: null
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Helps ensure proper scaling on mobile -->
+  <!-- Ensures proper mobile scaling -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
   <style>
@@ -19,29 +19,34 @@ layout: null
       padding: 0;
     }
 
-    /* Container for centering and left-aligning text */
-    .container {
+    /* Wraps header and nav so they share the same width */
+    .header-nav-container {
       max-width: 800px;
       margin: 0 auto; /* centers horizontally */
-      text-align: left; /* left-align text inside */
+      text-align: left; 
       padding: 0 1em;
     }
 
-    /* Increase base font size slightly */
-    body,
-    .container {
+    /* Container for main content (blog, map, definition) */
+    .content-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1em;
+    }
+
+    /* Slightly larger base font size */
+    body, .header-nav-container, .content-container {
       font-size: 1.1em;
     }
 
-    /* Header with subtitle and image */
+    /* Header with subtitle & image on the right */
     header {
       display: flex;
       align-items: center;
-      justify-content: space-between; 
+      justify-content: space-between;
       background-color: #58B62C;
       color: white;
-      padding: 1em;
-      margin-bottom: 0;
+      padding: 1em 0; /* no left/right since .header-nav-container has padding */
     }
     header .subtitle {
       margin: 0;
@@ -52,18 +57,16 @@ layout: null
       border-radius: 4px;
     }
 
-    /* Hamburger menu container */
+    /* Nav container with hamburger toggle */
     .nav-container {
       background-color: #333;
       margin-bottom: 2em;
     }
-
-    /* The hidden checkbox that toggles the menu on mobile */
+    /* Hidden checkbox for toggling menu on mobile */
     #menu-toggle {
       display: none;
     }
-
-    /* The label that acts as the hamburger icon on mobile */
+    /* Hamburger icon label */
     .menu-toggle-label {
       display: none;
       padding: 1em;
@@ -73,14 +76,13 @@ layout: null
     .menu-toggle-label:hover {
       background-color: #444;
     }
-
-    /* The actual nav links */
+    /* The nav links list */
     nav ul {
       list-style: none;
       margin: 0;
       padding: 1em;
       display: flex;
-      flex-direction: row; /* links in a row by default */
+      flex-direction: row; /* side by side on desktop */
     }
     nav ul li {
       margin-right: 15px;
@@ -90,60 +92,76 @@ layout: null
       text-decoration: none;
     }
 
-    /* 
-      On smaller screens:
-      1) Show the hamburger icon
-      2) Hide the nav links by default
-      3) Reveal them when the checkbox is checked
-    */
+    /* The main content (blog post, map, etc.) spacing */
+    .content-area {
+      margin-bottom: 2em;
+    }
+
+    /* Default map size */
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    /* Larger map on desktop */
+    @media (min-width: 800px) {
+      iframe {
+        height: 800px; /* Increase map height on wider screens */
+      }
+    }
+
+    /* On smaller screens: show hamburger, hide nav links by default */
     @media (max-width: 600px) {
       .menu-toggle-label {
-        display: block; /* show hamburger on mobile */
+        display: block;
         background-color: #333;
       }
       nav ul {
-        display: none; /* hide links by default */
-        flex-direction: column; 
+        display: none; /* hidden until toggled */
+        flex-direction: column;
       }
-      #menu-toggle:checked + nav ul {
+      #menu-toggle:checked ~ nav ul {
         display: flex; /* show links when toggled */
+      }
+      header {
+        flex-direction: column; /* stack title and image vertically */
+      }
+      header img {
+        margin-top: 1em;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER: Title, Subtitle, Image on the Right -->
-  <div class="container">
+  <!-- HEADER + NAV share the same container width -->
+  <div class="header-nav-container">
     <header>
       <div>
         <h1 style="margin: 0;">{{ site.title }}</h1>
         <h2 class="subtitle">Alex F Wall's research and projects</h2>
       </div>
-      <img src="{{ '/AFWall ABC News.jpg' | relative_url }}" 
-           alt="Alex F. Wall">
+      <img src="{{ '/AFWall ABC News.jpg' | relative_url }}" alt="Alex F. Wall">
     </header>
-  </div>
 
-  <!-- NAV: Hamburger menu on mobile, horizontal links on desktop -->
-  <div class="container nav-container">
-    <!-- Hidden checkbox for toggling the menu -->
-    <input type="checkbox" id="menu-toggle">
-    <!-- The label that acts as the hamburger icon -->
-    <label for="menu-toggle" class="menu-toggle-label">&#9776; Menu</label>
-    <nav>
-      <ul>
-        <li><a href="{{ '/cv/' | relative_url }}">CV</a></li>
-        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-        <li><a href="https://www.linkedin.com/in/your-profile">LinkedIn</a></li>
-        <li><a href="https://github.com/AlexFWall">GitHub</a></li>
-        <li><a href="https://www.researchgate.net/profile/Your-Name">ResearchGate</a></li>
-      </ul>
-    </nav>
+    <div class="nav-container">
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-toggle-label">&#9776; Menu</label>
+      <nav>
+        <ul>
+          <li><a href="{{ '/cv/' | relative_url }}">CV</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+          <li><a href="https://www.linkedin.com/in/your-profile">LinkedIn</a></li>
+          <li><a href="https://github.com/AlexFWall">GitHub</a></li>
+          <li><a href="https://www.researchgate.net/profile/Your-Name">ResearchGate</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 
   <!-- MAIN CONTENT: blog post, map, definition -->
-  <div class="container">
+  <div class="content-container content-area">
     <!-- 1) Most Recent Blog Post -->
     {% assign latest_post = site.posts | first %}
     {% if latest_post %}
