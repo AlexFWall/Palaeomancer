@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Palaeomancer"
+subtitle:"Alex F Wall's research and projects"
 ---
 
 <style>
@@ -81,14 +82,6 @@ title: "Palaeomancer"
             <p>1. A person who practices or is skilled in the interpretation of ancient records, particularly those related to the Earth's geological and climatic history.<br>
             2. An expert in deciphering historical environmental changes through the analysis of fossilized remains, sediments, and other geological data.</p>
             <p><em>Origin:</em> Latin <em>palaeo-</em> (from Greek <em>palaios</em>, meaning "ancient") + <em>-mancer</em> (from Greek <em>manteia</em>, meaning "divination").</p>
-        </div>
-    </div>
-    <div class="right-column">
-        <img src="AFWall ABC News.jpg" alt="Alex F. Wall" class="profile-img">
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a>
-            <a href="https://github.com/AlexFWall">GitHub</a>
-            <a href="https://www.researchgate.net/profile/Your-Name">ResearchGate</a>
         </div>
     </div>
 </main>
