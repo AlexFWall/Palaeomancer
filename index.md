@@ -1,5 +1,5 @@
 ---
-layout: null
+layout: default
 title: "Alex F Wall, PhD"
 ---
 
