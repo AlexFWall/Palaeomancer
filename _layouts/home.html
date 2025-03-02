@@ -126,10 +126,11 @@ header {
        3) Move image below subtitle
     */
     @media (max-width: 600px) {
-      .menu-toggle-label {
-        display: block;
-        background-color: #333;
-      }
+  .header-nav-container,
+  .content-container {
+    padding: 0 1em !important; /* or 0 if you want no horizontal padding at all */
+  }
+}
       nav ul {
         display: none; /* hidden until toggled */
         flex-direction: column;
