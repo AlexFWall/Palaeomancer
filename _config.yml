@@ -1,5 +1,4 @@
-nav:
-  - title: Home
-    url: /Palaeomancer
-  - title: Research
-    url: /research/
+title: "Palaeomancer"
+description: "Research Website"
+baseurl: "/Palaeomancer"
+url: "https://alexfwall.github.io"
