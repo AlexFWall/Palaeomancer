@@ -1,4 +1,7 @@
-title: "Palaeomancer"
-description: "Research Website"
-baseurl: "/Palaeomancer"
-url: "https://alexfwall.github.io"
+---
+layout: post
+title: "Welcome to My New Blog"
+date: 2024-10-17
+---
+
+This is my first post using Jekyll on my Palaeomancer site!
