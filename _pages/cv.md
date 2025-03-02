@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Alex F. Wall CV"
+permalink: /cv/
 ---
 
 # Alex F Wall, PhD
