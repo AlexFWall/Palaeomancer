@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 title: "Palaeomancer"
 subtitle: "Alex F Wall's research and projects"
 ---
