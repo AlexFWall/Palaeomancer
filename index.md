@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Palaeomancer"
-subtitle:"Alex F Wall's research and projects"
+subtitle: "Alex F Wall's research and projects"
 ---
 
 <style>
