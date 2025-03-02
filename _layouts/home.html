@@ -24,14 +24,14 @@ layout: null
       max-width: 800px;
       margin: 0 auto;  /* centers horizontally */
       text-align: left;
-      padding: 0 1em;  /* normal left/right padding for title/subtitle */
+      padding: 0 1em;
     }
 
-    /* Container for main content (blog, map, definition) */
+    /* Container for main content (blog snippet, map, definition) */
     .content-container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 0 2em;  /* normal left/right padding for main content */
+      padding: 0 2em;
     }
 
     /* Slightly larger base font size */
@@ -95,20 +95,26 @@ layout: null
       text-decoration: none;
     }
 
-    /* The main content (blog post, map, etc.) spacing */
+    /* The main content (blog snippet, map, etc.) spacing */
     .content-area {
       margin-bottom: 2em;
     }
 
+    /* Restrict images in the blog snippet so they aren't huge */
+    .home-post-content img {
+      max-width: 400px;
+      height: auto;
+    }
+
     /*
       Responsive 9:5 aspect ratio for the map:
-      1) A wrapper .map-container with a top padding of 55.55% (5/9 ~ 0.5555)
+      1) A wrapper .map-container with a top padding of 55.55% (5/9 => 0.5555)
       2) The <iframe> is absolutely positioned to fill that space
     */
     .map-container {
       position: relative;
       width: 100%;
-      padding-top: 55.555%; /* 5/9 => 0.5555 => 9:5 ratio */
+      padding-top: 55.555%; /* 9:5 ratio */
       margin-bottom: 2em;
     }
     .map-container iframe {
@@ -120,9 +126,13 @@ layout: null
       border: none;
     }
 
-    /* Mobile Styles */
+    /* On smaller screens:
+       1) Show hamburger icon
+       2) Stack header items vertically, left-justified
+       3) Move image below subtitle
+       4) Possibly reduce container padding
+    */
     @media (max-width: 600px) {
-      /* Show hamburger icon, hide nav links by default */
       .menu-toggle-label {
         display: block;
         background-color: #333;
@@ -135,17 +145,15 @@ layout: null
         display: flex; /* show links when toggled */
       }
 
-      /* Stack header items vertically, left-justified */
       header {
         flex-direction: column;
         align-items: flex-start;
       }
       header img {
         margin-top: 1em;
-        align-self: flex-start; /* place the image below the subtitle, left-justified */
+        align-self: flex-start;
       }
 
-      /* Reduce container padding if it feels cramped */
       .header-nav-container,
       .content-container {
         padding: 0 1em !important;
@@ -170,24 +178,29 @@ layout: null
       <label for="menu-toggle" class="menu-toggle-label">&#9776; Menu</label>
       <nav>
         <ul>
-          <li><a href="{{ '/cv/' | relative_url }}">CV</a></li>
+          <!-- Make sure this link points to the actual blog index page -->
           <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+          <li><a href="{{ '/cv/' | relative_url }}">CV</a></li>
           <li><a href="https://www.linkedin.com/in/alexfwall">LinkedIn</a></li>
           <li><a href="https://github.com/AlexFWall">GitHub</a></li>
-          <li><a href="https://www.threads.net/@paleomancer">Threads</a></li>
-          <li><a href="https://www.reddit.com/user/ThePalaeomancer/">Reddit</a></li>
+          <li><a href="https://www.researchgate.net/profile/Your-Name">ResearchGate</a></li>
         </ul>
       </nav>
     </div>
   </div>
 
-  <!-- MAIN CONTENT: blog post, map, definition -->
+  <!-- MAIN CONTENT: truncated blog snippet, map, definition -->
   <div class="content-container content-area">
-    <!-- 1) Most Recent Blog Post -->
+    <!-- 1) "Latest Blog" heading, date, and snippet -->
     {% assign latest_post = site.posts | first %}
     {% if latest_post %}
-      <h2>{{ latest_post.title }}</h2>
-      {{ latest_post.content }}
+      <h2>Latest Blog</h2>
+      <p><em>{{ latest_post.date | date_to_string }}</em></p>
+      <div class="home-post-content">
+        <h3>{{ latest_post.title }}</h3>
+        {{ latest_post.excerpt }} <!-- shows up to 'excerpt_separator' or the first paragraph -->
+        <p><a href="{{ latest_post.url }}">Read More</a></p>
+      </div>
     {% else %}
       <p>No blog posts yet!</p>
     {% endif %}
@@ -198,10 +211,9 @@ layout: null
       <a href="https://www.jcu.edu.au/college-of-science-and-engineering/vegemap">
         <img src="{{ '/VegeMap_BurstingLogo_Final2-01.png' | relative_url }}" 
              alt="VegeMap Logo" 
-             style="height:90px; margin-right:10px; vertical-align:middle;">
+             style="height:75px; margin-right:10px; vertical-align:middle;">
       </a>
       Interactive Map
-      <p>Pollen traps placed by the VegeMap project! Click on for details...</p>
     </h2>
     <div class="map-container">
       <iframe src="map.html"></iframe>
