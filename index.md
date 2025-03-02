@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Alex F Wall, PhD"
+title: "Palaeomancer"
 ---
 
 <style>
@@ -73,14 +73,6 @@ title: "Alex F Wall, PhD"
   }
 </style>
 
-<header>
-    <h1>Alex F Wall, PhD</h1>
-</header>
-<nav>
-   <a href="https://www.jcu.edu.au/college-of-science-and-engineering/vegemap">VegeMap</a>
-   <a href="{{ '/cv/' | relative_url }}">CV</a>
-   <a href="{{ '/blog/' | relative_url }}">Blog</a>
-</nav>
 <main>
     <div class="left-column">
         <div class="content">
