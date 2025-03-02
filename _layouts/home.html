@@ -6,8 +6,11 @@ layout: null
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- This helps ensure proper scaling on mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
   <style>
+    /* Base styling */
     body {
       font-family: Arial, sans-serif;
       background-color: #FFF9EC;
@@ -15,72 +18,115 @@ layout: null
       margin: 0;
       padding: 0;
     }
+    /* Center everything horizontally and right-align text */
+    .container {
+      max-width: 800px;
+      margin: 0 auto; /* centers horizontally */
+      text-align: right; /* right-aligns the text inside */
+      padding: 0 1em;
+    }
+    /* Make fonts slightly larger by default */
+    body, .container {
+      font-size: 1.1em;
+    }
+    /* Header styles */
     header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* space between the title and image */
       background-color: #58B62C;
       color: white;
       padding: 1em;
-      text-align: left;
-      position: relative;
-      height: 150px;
+      margin-bottom: 0; /* We'll rely on .container for spacing */
     }
-    nav {
+    header .subtitle {
       margin: 0;
-      padding: 1em;
+      font-size: 1.2em;
+    }
+    /* Nav styles */
+    nav {
       background-color: #333;
-      text-align: left;
+      padding: 1em;
+      margin-bottom: 2em; /* space after nav before main content */
     }
     nav a {
       margin: 0 15px;
       color: white;
       text-decoration: none;
     }
-    .container {
-      max-width: 800px;
-      margin: 2em auto;
-      padding: 0 1em;
+    /* Blog container, map, definition */
+    .content-area {
+      margin-bottom: 2em;
     }
     iframe {
       width: 100%;
       height: 600px;
       border: none;
     }
+
+    /* Make fonts even bigger on smaller screens (e.g., phones) */
+    @media (max-width: 600px) {
+      body, .container {
+        font-size: 1.2em; /* slightly larger on mobile */
+      }
+      header {
+        flex-direction: column; /* stack the title and image vertically */
+        text-align: right;      /* keep text right-aligned */
+      }
+      header img {
+        margin-top: 1em;
+      }
+    }
   </style>
 </head>
 <body>
-   <!-- NEW HEADER WITH IMAGE + SUBTITLE -->
-  <header>
-    <div>
-      <h1 style="margin: 0;">{{ site.title }}</h1>
-      <h2 class="subtitle">Alex F Wall's research and projects</h2>
-    </div>
-    <img src="{{ '/AFWall ABC News.jpg' | relative_url }}" 
-         alt="Alex F. Wall" 
-         style="height: 100px; border-radius: 4px;">
-  </header>
-  <nav>
-    <a href="{{ '/cv/' | relative_url }}">CV</a>
-    <a href="{{ '/blog/' | relative_url }}">Blog</a>
-    <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a>
-    <a href="https://github.com/AlexFWall">GitHub</a>
-    <a href="https://www.researchgate.net/profile/Your-Name">ResearchGate</a>
-  </nav>
+
+  <!-- Header and Title -->
   <div class="container">
+    <header>
+      <div>
+        <h1 style="margin: 0;">{{ site.title }}</h1>
+        <h2 class="subtitle">Alex F Wall's research and projects</h2>
+      </div>
+      <img src="{{ '/AFWall ABC News.jpg' | relative_url }}" 
+           alt="Alex F. Wall" 
+           style="height: 100px; border-radius: 4px;">
+    </header>
+  </div>
+
+  <!-- Navigation -->
+  <div class="container">
+    <nav>
+      <a href="{{ '/cv/' | relative_url }}">CV</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a>
+      <a href="https://github.com/AlexFWall">GitHub</a>
+      <a href="https://www.researchgate.net/profile/Your-Name">ResearchGate</a>
+    </nav>
+  </div>
+
+  <!-- Main content area: blog post, map, definition -->
+  <div class="container content-area">
     <!-- 1) Most Recent Blog Post -->
     {% assign latest_post = site.posts | first %}
+    {% if latest_post %}
       <h2>{{ latest_post.title }}</h2>
       {{ latest_post.content }}
+    {% else %}
+      <p>No blog posts yet!</p>
+    {% endif %}
     <hr>
 
-<!-- 2) Map -->
-<h2>
-  <a href="https://www.jcu.edu.au/college-of-science-and-engineering/vegemap">
-    <img src="{{ '/VegeMap_BurstingLogo_Final2-01.png' | relative_url }}" 
-         alt="VegeMap Logo" 
-         style="height:75px; margin-right:10px; vertical-align:middle;">
-  </a>
-  Interactive Map
-</h2>
-<iframe src="map.html"></iframe>
+    <!-- 2) Map -->
+    <h2>
+      <a href="https://www.jcu.edu.au/college-of-science-and-engineering/vegemap">
+        <img src="{{ '/VegeMap_BurstingLogo_Final2-01.png' | relative_url }}" 
+             alt="VegeMap Logo" 
+             style="height:75px; margin-right:10px; vertical-align:middle;">
+      </a>
+      Interactive Map
+    </h2>
+    <iframe src="map.html"></iframe>
 
     <hr>
 
