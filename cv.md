@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Full CV"
+title: "CV"
 permalink: /cv/
 ---
 
