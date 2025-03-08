@@ -307,7 +307,7 @@ Interdisciplinary Earth Scientist with expertise in palaeoecology, geochemistry,
 
 ## Public Outreach and Media
 
-- **Australian National Botanic Gardens** (2024) – Speaker  
+- **Australian National Botanic Gardens** (2024) – Speaker at Friends of the Australian National Botanic Garden [Link](https://friendsanbg.org.au/node/2043) 
 - **Costa Georgiadis’ YouTube Channel** (2024) – Featured guest on pollen monitoring, ecosystem health. [Link](https://www.youtube.com/live/jJJ-yOgLGOU?si=tvBaSKTq9TCyqY0K)  
 - **ABC Radio Alice Springs** (2024) – Interviewed on VegeMap and pollen trapping.  
 - **ABC Radio Canberra** (2024) – Interviewed on palynology and environmental history.  
