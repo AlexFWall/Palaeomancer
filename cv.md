@@ -6,7 +6,7 @@ permalink: /cv/
 
 # Alex F Wall, PhD
 
-**Earth Scientist**  
+**Earth Systems Scientist**  
 Dickson, ACT, Australia • 0457 252 302 • [alexfwall@gmail.com](mailto:alexfwall@gmail.com)  
 [linkedin.com/in/alexfwall](https://linkedin.com/in/alexfwall) • [alexfwall.github.io/Palaeomancer/](https://alexfwall.github.io/Palaeomancer/)
 
