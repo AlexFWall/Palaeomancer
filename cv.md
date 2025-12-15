@@ -57,15 +57,29 @@ Interdisciplinary Earth Scientist with expertise in palaeoecology, geochemistry,
 
 ## Experience
 
+### Research Associate in Environmental Time-Series Modelling
+[**Global Ecology | Partuyarta Ngadluku Wardli Kuu, Flinders University**](https://globalecologyflinders.com)  
+[**ARC Centre of Excellence for Indigenous and Environmental Histories and Futures**](https://ciehf.au)  
+**September 2025–Present**  
+- Analyse palaeo- and modern environmental time-series data derived from lake, lagoon, river, and wetland sediment cores.  
+- Develop and apply statistical and computational models to interpret vegetation, fire, and climate proxies spanning the last ~1000 years.  
+- Build and maintain reproducible codebases for handling complex, uncertain environmental datasets.  
+- Design and run simulation models to test proxy behaviour under varying environmental and climatic constraints.  
+- Work collaboratively with palaeoecologists, climatologists, archaeologists, and Indigenous collaborators across multiple universities and Aboriginal Corporations.  
+- Contribute to co-designed research with Indigenous communities, supporting ethical data access and interpretation.  
+- Integrate palaeoenvironmental records with modern observations to improve long-term environmental reconstructions.  
+- Contribute to peer-reviewed publications, reports, and project outputs in collaboration with Chief Investigators and partners.  
+- Support interdisciplinary research planning, data synthesis, and interpretation across distributed research teams.
+
 ### Research Officer  
 **School of Culture, History and Language, Australian National University**  
-**November 2024–Present**  
-- Conduct fieldwork across diverse Australian landscapes, collecting sedimentological and palaeoecological samples.  
-- Train graduate students in laboratory procedures and analyses.  
-- Perform radiocarbon sample preparation and analysis, including running the line.  
-- Maintain laboratory equipment and manage research materials, ensuring safe and efficient operations.  
-- Support collaborative research projects by liaising with interdisciplinary teams, Traditional Custodians, and other stakeholders.  
-- Contribute to research outputs, assisting in manuscript preparation and data analysis.  
+**November 2024–July 2025**  
+- Conducted fieldwork across diverse Australian landscapes, collecting sedimentological and palaeoecological samples.  
+- Trained graduate students in laboratory procedures and analyses.  
+- Performed radiocarbon sample preparation and analysis, including running the line.  
+- Maintained laboratory equipment and manage research materials, ensuring safe and efficient operations.  
+- Supported collaborative research projects by liaising with interdisciplinary teams, Traditional Custodians, and other stakeholders.  
+- Contributed to research outputs, assisting in manuscript preparation and data analysis.  
 - Developed a research-quality 3D printed pollen trap design.
 
 ### Postdoctoral Fellow  
